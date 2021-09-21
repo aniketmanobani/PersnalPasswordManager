@@ -154,8 +154,16 @@ def createPassword(request):
 @login_required(login_url='login')
 def viewDetails(request, id):
     p = PasswordStore.objects.filter(user_id=request.user, id=id)
+    showPassword = False
+
+    if request.method == "POST":
+        if 'password' in request.POST.keys() and len(request.POST.get('password')) > 0:
+            verifyPass = auth.authenticate(username=request.user.username, password=request.POST.get('password'))
+            if verifyPass is not None:
+                showPassword = True
     if p.exists():
-        return render(request, 'viewdetails.html', {'detail': p})
+        print(p)
+        return render(request, 'viewdetails.html', {'info': p[0], 'showPassword': showPassword})
     else:
         return render(request, 'not_found.html')
     return render(request, 'viewdetails.html')
