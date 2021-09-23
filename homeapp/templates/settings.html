@@ -1,0 +1,77 @@
+{% extends 'container.html'%}
+{% block title%}  {{request.user.first_name}} | PPM {%endblock%}
+{% block page_heading %}
+{{request.user.first_name}} | Settings
+{%endblock%}
+
+{% block body %}
+
+<div class="container">
+<div class="card shadow">
+ <table class="table">
+ 		<form action="/settings" method="POST"> 
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td><strong>Username</strong></td>
+                <td><input type="text" class="form-control" name="username" value="{{request.user.username}}" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><strong>First Name</strong></td>
+                <td><input type="text" class="form-control" name="first_name" value="{{request.user.first_name}}" /></td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td><strong>Last Name</strong></td>
+                               <td><input type="text" class="form-control" name="last_name" value="{{request.user.last_name}}" /></td>
+
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td><strong>Email</strong></td>
+                                <td><input type="text" class="form-control" name="email" value="{{request.user.email}}" /></td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td><strong>Current Password</strong></td>
+                <td><input type="password" class="form-control" name="currentPassword" placeholder="Enter current Password to save changes" /></td>
+                <td>
+                   
+                </td>
+            </tr>
+
+             <tr>
+                <th scope="row">5</th>
+                <td><strong>New Password <p>(Leave it blank if you <br>dont want to change password)</p></strong></td>
+                <td><input type="password" class="form-control" name="currentPassword" placeholder="Set New Password" /></td>
+                <td>
+                    <div class="container"></div>
+                </td>
+            </tr>
+
+              <tr>
+                <th scope="row">5</th>
+                <td>       
+                <td><button class="form-control btn btn-primary" type="submit" >Update </button></td></td>
+                <td>
+                    <div class="container"></div>
+                </td>
+            </tr>
+           
+            </tbody>
+
+        </table>
+    
+        </form>
+</div>
+</div>
+
+{%endblock%}

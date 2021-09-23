@@ -1,0 +1,55 @@
+{% extends 'container.html'%}
+{% block title%}  {{request.user.first_name}} | PPM {%endblock%}
+{% block page_heading %}
+{{request.user.first_name}}
+{%endblock%}
+
+{% block body %}
+<div class="container">
+<div class="card shadow">
+ <table class="table">
+
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td><strong>Username</strong></td>
+                <td>{{request.user.username}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><strong>First Name</strong></td>
+                <td>{{request.user.first_name}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td><strong>Last Name</strong></td>
+                <td>{{request.user.last_name}}</td>
+                <td
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td><strong>Email</strong></td>
+                <td>{{request.user.email}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td><strong>Password</strong></td>
+                
+                <td>****************</td>
+                
+                <td>
+                    <a href="/settings"  class="btn btn-primary">Change Password</button>
+                </td>
+            </tr>
+           
+            </tbody>
+
+        </table>
+</div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,23 @@
+{% extends 'container.html'%}
+{% block title%} {{search_text}} | PPM {%endblock%}
+{% block page_heading %}
+Searching for   {{search_text}}
+{%endblock%}
+
+{% block body %}
+<div class="container col-lg-5">
+ {%for item in res%}
+    <div class="card shadow my-4">
+   
+  
+  <div class="card-body ">
+    <h5 class="card-title">{{item.app_or_web}}</h5>
+    <p class="card-text"><Strong>Category: {{item.app_type}}</Strong> <br/>Email: {{item.email}} <br/>Usernamw: {{item.username}}</p>
+    <a href="/viewdetails/{{item.id}}" target="_blank" class="btn btn-primary">View</a>
+  </div>
+
+
+    </div>
+    {% endfor %}
+</div>
+{%endblock%}
